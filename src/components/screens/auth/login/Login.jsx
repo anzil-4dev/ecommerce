@@ -12,8 +12,8 @@ import auth from '@react-native-firebase/auth';
 import {useFetchState} from '../../../../context/Store';
 
 const Login = () => {
-  const [phone, setPhone] = useState('anzil@test.com');
-  const [password, setPassword] = useState('123');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
   const [show, setShow] = useState(true);
   const [isNewAccount, setNewAccount] = useState(false);
   const {dispatch} = useFetchState();
