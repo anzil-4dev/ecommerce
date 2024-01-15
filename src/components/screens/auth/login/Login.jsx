@@ -12,7 +12,7 @@ import auth from '@react-native-firebase/auth';
 import {useFetchState} from '../../../../context/Store';
 
 const Login = () => {
-  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [show, setShow] = useState(true);
   const [isNewAccount, setNewAccount] = useState(false);
@@ -20,7 +20,7 @@ const Login = () => {
 
   const createAccount = async () => {
     auth()
-      .createUserWithEmailAndPassword(phone, password)
+      .createUserWithEmailAndPassword(email, password)
       .then(res => {
         setNewAccount(false);
       })
@@ -38,7 +38,7 @@ const Login = () => {
 
   const login = async () => {
     auth()
-      .signInWithEmailAndPassword(phone, password)
+      .signInWithEmailAndPassword(email, password)
       .then(res => {
         dispatch({
           type: 'USER_AUTH',
@@ -72,9 +72,9 @@ const Login = () => {
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
-          placeholder="Enter Phone Number"
-          onChangeText={text => setPhone(text)}
-          value={phone}
+          placeholder="Enter Email Address"
+          onChangeText={text => setEmail(text)}
+          value={email}
           keyboardType="phone-pad"
         />
       </View>
